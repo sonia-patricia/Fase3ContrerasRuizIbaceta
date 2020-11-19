@@ -1,0 +1,6 @@
+SU
+User> admin
+Password> 1234
+
+conectarse a: http://127.0.0.1:8000/
+Uso de crud: http://127.0.0.1:8000/producto/

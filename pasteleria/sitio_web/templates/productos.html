@@ -1,0 +1,225 @@
+{% extends "base_generic.html" %}
+<head>
+{% block content %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Prueba 1 Desarrollo Web - Pasteleria" />
+    <meta name="author" content="Sonia, Maribel y Alvaro" />
+    <title>Pasteleria Momentos Dulces</title>
+    <!-- Icono pestaña -->
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/img/cake.ico' %}" />
+    <!-- iconos bloque servicios -->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Fuente de Google -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- Galeria de fotos, fotos grandes -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+    <!-- CSS -->
+    {% load static %}
+    <link href="{% static 'css/styles1.css' %}" rel="stylesheet" />
+</head>
+    <!-- Inicio Principal - Carrusel -->
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center text-center">
+                <div class="col-lg-5">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            {% load static %}
+                            <img src="{% static 'assets/img/carrusel/1.jpg' %}" alt="">
+                                <div class="carousel-caption">
+                                    <h5>Información</h5>
+                                        <p>.</p>
+                                </div>
+                        </div>
+                        <div class="carousel-item">
+                            {% load static %}
+                            <img src="{% static 'assets/img/carrusel/2.jpg' %}" alt="">
+                                <div class="carousel-caption">
+                                    <h5>Indicaciones Covid-19</h5>
+                                        <p>.</p>
+                                </div>
+                        </div>
+                        <div class="carousel-item">
+                            {% load static %}
+                            <img src="{% static 'assets/img/carrusel/3.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                </div>    
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalogo -->
+    <div id="catalogo">
+        <div class="container-fluid p-1 bg-primary">
+            <div class="col-sm-12 m-auto">    
+                <div class="row no-gutters">
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/1.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/1.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta de Chocolate y Café</div>
+                                <div class="pasteleria-name">Torta de bizcocho con cubierta de crema sabor a café y chocolate</div>
+                                <div class="pasteleria-name precio">Precio 10 personas: $9.500</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/2.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/2.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta de Mantequilla</div>
+                                <div class="pasteleria-name">Torta de bizcocho con cremoso relleno de buttercream de chocolate y una cubierta de ganache de chocolate</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $8.540</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/3.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/3.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta Chocolate</div>
+                                <div class="pasteleria-name">Torta de bizcocho sabor chocolate con cubierta de chocolate y fresas</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $10.100</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/4.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/4.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta Red Velvet</div>
+                                <div class="pasteleria-name">Torta de bizcocho sabor a frutos rojos, remojado en almbibar, además de un glaseado de frutos rojos</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $12.945</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/5.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/5.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Pastel con Merengue y Frutos Rojos</div>
+                                <div class="pasteleria-name">Torta de bizcocho con merengue, frutos rojos y cobertura de Chocolate</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $11.500</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/6.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/6.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta Mexicana de Chocolate</div>
+                                <div class="pasteleria-name">Torta de bizcocho glaseado de flor de Jamaica y frambuesa vegano</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $14.540</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/7.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/7.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta de Nuez</div>
+                                <div class="pasteleria-name">Torta de bizcocho con nuez picada, relleno de merengue y frutos rojos</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $6.540</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/8.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/8.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta de Arcoíris</div>
+                                <div class="pasteleria-name">Torta de bizcocho coloreada con cubierta de cremma y chispas de colores</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $6.540</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/9.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/9.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta de Frutas</div>
+                                <div class="pasteleria-name">Torta de bizcocho relleno con crema y cubierta de frutas</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $10.540</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/10.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/10.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta de Moka Envinado</div>
+                                <div class="pasteleria-name">Torta de bizcocho con sabor a café y chocolate, decorado con fresas y canela</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $11.540</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/11.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/11.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Mousse de Tres Leches</div>
+                                <div class="pasteleria-name">Mousse con sabor a chocolate y tres leches, decorado con canela</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $8.240</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mt-3">
+                        {% load static %}
+                        <a class="catalogo-box" href="{% static 'assets/img/catalogo/fullsize/12.jpeg' %}">
+                            {% load static %}
+                            <img class="img-fluid" src="{% static 'assets/img/catalogo/thumbnails/12.jpeg' %}" alt="" />
+                            <div class="catalogo-box-caption">
+                                <div class="pasteleria-category text-white-50">Torta Tres Leches</div>
+                                <div class="pasteleria-name">Torta de bizcocho con sabor a chocolate y tres leches, decorado con crema y fresas en su exterior</div>
+                                <div class="pasteleria-name precio">Precio 10 Personas: $11.540</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

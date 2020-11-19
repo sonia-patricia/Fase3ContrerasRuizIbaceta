@@ -1,0 +1,116 @@
+{% extends "base_generic.html" %}
+
+<head>
+{% block content %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Prueba 1 Desarrollo Web - Pasteleria" />
+    <meta name="author" content="Sonia, Maribel y Alvaro" />
+    <title>Pasteleria Momentos Dulces</title>
+    <!-- Icono pestaña -->
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/img/cake.ico' %}" />
+    <!-- iconos bloque servicios -->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Fuente de Google -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- Galeria de fotos, fotos grandes -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+    <!-- CSS -->
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/valida.css' %}" rel="stylesheet" />
+</head>
+
+    <!-- Mapa de Ubicacion -->
+    <section class="page-section bg-primary" id="location">
+
+        {% if mostrar_popup == '1' %}    
+
+            <div class="container alert alert-success alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">Formulario enviado correctamente</h4>
+                <p>Gracias por comunicarte con nosotros. Pronto te escribiremos</p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        {% endif %}
+
+        <div class="container text-white-50">
+            <h1>Contactate con nosotros</h1>
+            <div class="row">
+
+                <div class="col-sm-8">
+                    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.6140927783986!2d-70.7546297847014!3d-33.5114161080301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dcd1fe0c7bab%3A0x4d17b82a7ba77488!2sDuoc%20UC%3A%20Sede%20Maipu!5e0!3m2!1ses!2scl!4v1600309427160!5m2!1ses!2scl" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+
+                <div class="col-sm-4 text-white-50">
+                    <h2>Ubicación</h2>
+                    <p>Ven a visitarnos a nuestro local!</p>
+                    <p>Estamos ubicados en Av. Esquina Blanca 501, Maipú</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario -->
+    <section class="page-section">
+        <div class="container font_form">
+            <h1>Formulario de Contacto</h1>
+            
+            <form id="formulario" action="/contacto/" method="POST">{% csrf_token %} 
+                <div class="form-group">
+                    <label> Nombre </label>
+                    <input class="form-control" required="" name="nombre" type="name" placeholder="Ingrese nombre">
+                </div>
+
+                <div class="form-group">
+                    <label> Correo Electrónico</label>
+                    <input class="form-control" required="" name="email" type="email" placeholder="nombre@dominio.cl">
+                </div>
+
+                <div class="form-group">
+                    <label>Telefono </label>
+                    <input class="form-control" required="" name="telefono" type="number" minlength="9" placeholder="Ingrese numero celular">
+                </div>
+
+                <div class="form-group">
+                    <label for="date"> Fecha:</label>
+                    <input class="form-control" required="" name="fecha" type="date" placeholder="fecha">
+                </div>
+
+                <div class="form-group">
+                    
+                    <label class="motivo" required="">Motivo de Contacto:</label>
+
+                    <div class="form-check">  
+                        
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio" value="reclamo">Reclamo
+                        </label>                       
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio" value="sugerencia">Sugerencia
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio" value="pedido" checked>Pedido
+                        </label>
+                    </div>
+
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="comment">Comentario:</label>
+                    <textarea class="form-control" name="comentario" placeholder='Deje su comentario' rows="5"></textarea>
+                </div>
+                <button alert type="submit" class="btn btn-primary">Enviar</button>            
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
