@@ -1,0 +1,11 @@
+{%extends "base_crud.html" %}
+
+{%block content%}
+<h1> Borrar Pedido </h1>
+<p>Estas seguro de borrar el Pedido: {{pedido.numero_pedido}} ?</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" action="" value="Sí, eliminar">
+</form>
+{%endblock%}

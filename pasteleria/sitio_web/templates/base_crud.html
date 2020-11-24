@@ -20,13 +20,38 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" /> <!-- CARGANDO CSS EN FORMATO DJANGO-->
 </head>
 <body class="crud-bg">
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand">Portal Pastelería</a>
+        
+        <span class="navbar-text">Hola {{ user.first_name }} {{ user.last_name }}</span>
+        <form class="form-inline" action='/accounts/logout/'>            
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar Sesión</button>
+        </form>
+      </nav>
+
+
     <div class="container-fluid">
         
         <div class="row">
             <div class="col-sm-2">
             {% block sidebar %}
-            
-           {% endblock %}
+                {% if user.groups.all.0.name == "Supervisor" %}
+                    <ul class="sidebar-nav">
+                        <li><a href="{% url 'portal' %}">Inicio</a></li>
+                        <li><a href="{% url 'productos' %}">Producto</a></li>
+                        <li><a href="{% url 'pedidos' %}">Pedido</a></li>
+                        <li><a href="{% url 'usuario' %}">Usuario</a></li>
+                        <li><a href="{% url 'cambiar_clave' %}">Cambiar Clave</a></li>
+                    </ul>
+                {% elif user.groups.all.0.name == "Vendedor" %}
+                    <ul class="sidebar-nav">
+                        <li><a href="{% url 'portal' %}">Inicio</a></li>
+                        <li><a href="{% url 'pedidos' %}">Pedido</a></li>
+                        <li><a href="{% url 'cambiar_clave' %}">Cambiar Clave</a></li>
+                    </ul>
+                {% endif %}
+            {% endblock %}
             </div>
             <div class="col-sm-10 ">
             {% block content %}{% endblock %}
