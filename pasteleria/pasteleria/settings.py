@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'sitio_web.apps.SitioWebConfig',
-    
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
