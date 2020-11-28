@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: =?utf-8?q?Contrase=C3=B1a_restablecida_en_localhost=3A8000?=
+From: webmaster@localhost
+To: so.ibaceta@alumnos.duoc.cl
+Date: Sat, 28 Nov 2020 16:46:22 -0000
+Message-ID: <160658198289.14000.3536872219543591121@DESKTOP-723CMEB>
+
+<p>Si has intentado recuperar tu contraseña para el correo so.ibaceta@alumnos.duoc.cl. Sigue el siguiente enlace: </p>
+
+http://localhost:8000/accounts/reset/Mw/5lz-e1d592bf129b19809bed/
+
+-------------------------------------------------------------------------------

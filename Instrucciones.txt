@@ -1,5 +1,8 @@
 instalar 
 pip install django-widget-tweaks
+pip install djangorestframework
+pip install markdown       
+pip install django-filter  
 
 SU
 User> admin

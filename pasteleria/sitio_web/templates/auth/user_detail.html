@@ -1,13 +1,13 @@
 {%extends "base_crud.html"%}
 
+{% block title %}Gestión de Usuarios{% endblock %}
+
 {%block content%}
 
-<h1>Numero de Pedido: {{pedido.numero_pedido}}</h1>
-<p>Nombre: {{pedido.nombre}}</p> 
-<p>Email: {{pedido.email}}</p>
-<p>Telefono:{{pedido.telefono}}</p>
-<p>Fecha:{{pedido.fecha}}</p>
-<p>Descripción: {{pedido.descripcion}}</p>
-<p>Valor: {{pedido.valor}}</p>
-<p>Estado:{{pedido.estado}}</p>
+<h1>Nombre de usuario: {{user.username}}</h1>
+<p>Nombre: {{user.first_name}} {{user.last_name}}</p> 
+<p>Email: {{user.email}}</p>
+<p>Última conexión:{{user.last_login}}</p>
+<p>Creación:{{user.date_joined}}</p>
+<p>Tipo de usuario: {{user.groups.all.0.name}}</p>
 {%endblock%}

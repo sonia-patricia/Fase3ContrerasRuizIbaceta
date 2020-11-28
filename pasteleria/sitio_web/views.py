@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.views import generic
@@ -6,9 +6,12 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 
 from sitio_web.models import Contacto, Producto, Pedido
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
+
 
 # Create your views here.
 
@@ -123,8 +126,9 @@ class UserListView(generic.ListView):
     paginate_by = 30
 
 class UserCreate(generic.CreateView):
-    model = User
-    fields = ['username', 'email', 'first_name','last_name']
+    form_class = UserCreationForm
+    success_url = reverse_lazy('usuario')
+    template_name = 'user_create.html'
 
 class UserUpdate(UpdateView):
     model = User
@@ -143,8 +147,20 @@ class UserDetailView(generic.DetailView):
     model = User
     slug_field = "username"
 
-def Cambiar_Clave(request):
-    return render(
-        request,
-        'portal.html'
-    )
+def change_password_view(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+
+        if form.is_valid():
+            form.save()
+            # so that user does not get logged out, not working as of now.
+            # TODO
+            update_session_auth_hash(request, form.user)
+            return redirect('/portal/')
+        else:
+            return redirect('/portal/usuario/cambiar_clave/')
+
+    else:
+        form = PasswordChangeForm(user=request.user)
+        args = {'form': form}
+        return render(request, 'accounts/change_password.html', args) 
