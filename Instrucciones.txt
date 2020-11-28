@@ -1,3 +1,6 @@
+instalar 
+pip install django-widget-tweaks
+
 SU
 User> admin
 Password> 1234

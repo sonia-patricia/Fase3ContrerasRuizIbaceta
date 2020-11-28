@@ -122,16 +122,15 @@ class UserListView(generic.ListView):
     model = User
     paginate_by = 30
 
-class UserCreate(CreateView):
+class UserCreate(generic.CreateView):
     model = User
     fields = ['username', 'email', 'first_name','last_name']
-    template_name = '/auth/user_form.html'
-
 
 class UserUpdate(UpdateView):
     model = User
     slug_field = "username"
     fields = ['username', 'email', 'first_name','last_name']
+    success_url = reverse_lazy('usuario')
 
 
 class UserDelete(DeleteView):
