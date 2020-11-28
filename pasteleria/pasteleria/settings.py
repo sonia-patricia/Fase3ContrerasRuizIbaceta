@@ -40,8 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'sitio_web.apps.SitioWebConfig',
-    
+    'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 7
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -124,4 +129,5 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL='/portal/'
 LOGOUT_REDIRECT_URL='/accounts/login'
+
 
