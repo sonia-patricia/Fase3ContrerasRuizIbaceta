@@ -8,10 +8,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 
-from sitio_web.models import Contacto, Producto, Pedido
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 
+from sitio_web.models import Contacto, Producto, Pedido
+from sitio_web.forms import ProductoForm
 
 # Create your views here.
 
@@ -78,9 +79,20 @@ class ProductoListView(generic.ListView):
     paginate_by = 30
 
 
-class ProductoCreate(CreateView):
+"""class ProductoCreate(CreateView):
     model = Producto
-    fields = ['nombre_producto', 'descripcion', 'valor']
+    fields = ['nombre_producto', 'descripcion', 'valor']"""
+
+def ProductoCreate(request):
+    if request.method == 'POST':
+        form = ProductoForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('producto-detail', pk=post.pk)
+    else:
+        form = ProductoForm()
+        return render(request, 'sitio_web/producto_form.html', {'form':form})
 
 
 class ProductoUpdate(UpdateView):

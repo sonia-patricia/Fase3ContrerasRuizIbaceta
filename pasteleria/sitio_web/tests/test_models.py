@@ -1,5 +1,6 @@
 from django.test import TestCase
-from . models import Producto, Contacto
+from sitio_web.models import Producto
+
 #comentario arreglo nombre git
 
 class PastelesTestCase(TestCase):

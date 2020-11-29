@@ -13,7 +13,7 @@ urlpatterns = [
          name='productos'),  # Listado de productos
     path('portal/producto/<int:pk>', views.ProductoDetailView.as_view(),
          name='producto-detail'),  # Detalle del producto
-    path('portal/producto/create/', views.ProductoCreate.as_view(),
+    path('portal/producto/create/', views.ProductoCreate,
          name='producto_create'),  # Crear producto
     path('portal/producto/<int:pk>/update/', views.ProductoUpdate.as_view(),
          name='producto_update'),  # actualizar
