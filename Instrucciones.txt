@@ -8,5 +8,11 @@ SU
 User> admin
 Password> 1234
 
-conectarse a: http://127.0.0.1:8000/
-Uso de crud: http://127.0.0.1:8000/producto/
+Pagina principal: http://127.0.0.1:8000/
+Login: http://127.0.0.1:8000/accounts/login
+API http://127.0.0.1:8000/api
+
+Correr tests: python manage.py test sitio_web.tests
+
+ju.perez (vendedor)
+clave: Juan123456
