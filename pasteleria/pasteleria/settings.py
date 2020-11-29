@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'sitio_web.apps.SitioWebConfig',
     'rest_framework',
+    'quickstart',
 ]
 
 REST_FRAMEWORK = {
