@@ -15,6 +15,9 @@ class Producto(models.Model):
     def get_absolute_url(self):
         return reverse('producto-detail', args=[str(self.codigo_producto)])
 
+    def __str__(self):
+        return '%s, %s' % (self.nombre_producto, self.descripcion)
+
 
 class Contacto(models.Model):
 

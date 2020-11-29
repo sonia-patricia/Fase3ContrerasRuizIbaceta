@@ -44,7 +44,7 @@
                         <li><a href="{% url 'usuario' %}">Usuario</a></li>
                         <li><a href="{% url 'cambiar_clave' %}">Cambiar Clave</a></li>
                     </ul>
-                {% elif user.groups.all.0.name == "Vendedor" %}
+                {% else %}
                     <ul class="sidebar-nav">
                         <li><a href="{% url 'portal' %}">Inicio</a></li>
                         <li><a href="{% url 'pedidos' %}">Pedido</a></li>

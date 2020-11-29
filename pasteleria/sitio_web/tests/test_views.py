@@ -1,7 +1,5 @@
 from django.test import TestCase
 from django.urls import reverse
-from django.core.files.uploadedfile import SimpleUploadedFile
-
 from sitio_web.models import Producto, Contacto, Pedido
 
 class ProductoListViewTest(TestCase):
@@ -9,7 +7,7 @@ class ProductoListViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
 
-        number_of_producto = 31
+        number_of_producto = 60
 
         for codigo_producto in range(number_of_producto):
             Producto.objects.create(
@@ -23,7 +21,7 @@ class ProductoListViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        response = self.client.get("productos")
+        response = self.client.get(reverse('productos'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):
@@ -36,41 +34,40 @@ class ProductoListViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTrue('is_paginated' in response.context)
         self.assertTrue(response.context['is_paginated'] == True)
-        self.assertTrue(len(response.context['producto_list']) == 10)
+        self.assertTrue(len(response.context['producto_list']) == 30)
 
     def test_lists_all_productos(self):
         # Get second page and confirm it has (exactly) remaining 3 items
-        response = self.client.get(reverse('producto')+'?page=2')
+        response = self.client.get(reverse('productos')+'?page=2')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('is_paginated' in response.context)
         self.assertTrue(response.context['is_paginated'] == True)
-        self.assertTrue(len(response.context['producto_list']) == 3)
+        self.assertTrue(len(response.context['producto_list']) == 30)
 
 class PedidoListViewTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
 
-        number_of_pedido = 31
+        number_of_pedido = 50
 
         for numero_pedido in range(number_of_pedido):
             Pedido.objects.create(
-                numero_pedido=f'Torta {numero_pedido}',
                 nombre=f'Prueba {numero_pedido}',
                 email='prueba@prueba',
                 telefono=12345678,
-                fecha='25/11/2020',
+                fecha='2020-11-25',
                 descripcion=f'Prueba {numero_pedido}',
                 valor=10000,
                 estado='Ingresado',
             )
         
     def test_view_url_exists_at_desired_location(self):
-        response = self.client.get("/portal/pedido/")
+        response = self.client.get('/portal/pedido/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        response = self.client.get("pedidos")
+        response = self.client.get(reverse('pedidos'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):
@@ -83,15 +80,15 @@ class PedidoListViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTrue('is_paginated' in response.context)
         self.assertTrue(response.context['is_paginated'] == True)
-        self.assertTrue(len(response.context['pedido_list']) == 10)
+        self.assertTrue(len(response.context['pedido_list']) == 30)
 
     def test_lists_all_pedidos(self):
         # Get second page and confirm it has (exactly) remaining 3 items
-        response = self.client.get(reverse('pedido')+'?page=2')
+        response = self.client.get(reverse('pedidos')+'?page=2')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('is_paginated' in response.context)
         self.assertTrue(response.context['is_paginated'] == True)
-        self.assertTrue(len(response.context['pedido_list']) == 3)
+        self.assertTrue(len(response.context['pedido_list']) == 20)
 
 class ProductoDetailViewTest(TestCase):
 
@@ -112,7 +109,7 @@ class ProductoDetailViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        response = self.client.get("producto-detail",3)
+        response = self.client.get(reverse('producto-detail',args=[3]))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):

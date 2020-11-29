@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: =?utf-8?q?Contrase=C3=B1a_restablecida_en_127=2E0=2E0=2E1=3A8000?=
+From: webmaster@localhost
+To: ju.perez@hotmail.com
+Date: Sun, 29 Nov 2020 16:06:16 -0000
+Message-ID: <160666597615.18348.330382349866029043@DESKTOP-723CMEB>
+
+<p>Si has intentado recuperar tu contraseña para el correo ju.perez@hotmail.com. Sigue el siguiente enlace: </p>
+
+http://127.0.0.1:8000/accounts/reset/NA/5m0-6ae2f6e4515747e9ba4c/
+
+-------------------------------------------------------------------------------

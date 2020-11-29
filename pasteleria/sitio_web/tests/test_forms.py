@@ -16,7 +16,7 @@ class ProductoFormsTest(TestCase):
 
     def test_invalid_form(self):
         g = Producto.objects.create(
-            nombre_producto='c', 
+            nombre_producto='', 
             descripcion='Torta para 15 personas',
             valor=15000)
         data = {'nombre_producto': g.nombre_producto, 
